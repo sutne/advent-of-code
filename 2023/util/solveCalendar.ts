@@ -19,10 +19,13 @@ export function solveCalendar(props: {
         const sampleInput = readLines(samplePath)
         const sampleAnswer = props.solver(sampleInput)
         if (sampleAnswer !== props.sampleAnswer) {
-            if (sampleAnswer < props.sampleAnswer) console.error(`Sample answer '${sampleAnswer}' is too low ⬇️❗️`)
-            if (sampleAnswer > props.sampleAnswer) console.error(`Sample answer '${sampleAnswer}' is too high ⬆️❗️`)
+            let error = `Wrong sample answer '${sampleAnswer}'`
+            if (sampleAnswer < props.sampleAnswer) error += ', too low ⬇️❗️'
+            if (sampleAnswer > props.sampleAnswer) error += ', too high ⬆️❗️'
+            console.error(error)
             return
         }
+        console.log('✅ Sample Solved! solving full input...')
     }
 
     // Solve full input and print answer
