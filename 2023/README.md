@@ -3,3 +3,14 @@
 All parts are self-contained in their own file, with the exception of utils for reading/writing files.
 
 I have attempted to visualize the output for each part by writing output files with relevant information for each line alongside the line itself, which is also very convenient when debugging.
+
+### Progress
+
+```
+Day  1: ⭐️⭐️
+Day  2: ⭐️⭐️
+Day  3: ⭐️⭐️
+Day  4: ⭐️⭐️
+Day  5: ⭐️⭐️
+Day  6: ⭐️⭐️
+```
