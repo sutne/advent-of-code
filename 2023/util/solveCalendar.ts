@@ -32,5 +32,5 @@ export function solveCalendar(props: {
     const inputPath = `${getFolder(props.day)}/data/input${props.inputNr ? `-${props.inputNr}` : ''}.txt`
     const input = readLines(inputPath)
     const answer = props.solver(input)
-    console.log(`\n ${answer} ⭐️`)
+    console.log(`\n${answer} ⭐️`)
 }
