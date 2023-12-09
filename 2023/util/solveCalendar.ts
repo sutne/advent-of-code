@@ -19,18 +19,18 @@ export function solveCalendar(props: {
         const sampleInput = readLines(samplePath)
         const sampleAnswer = props.solver(sampleInput)
         if (sampleAnswer !== props.sampleAnswer) {
-            let error = `Wrong sample answer '${sampleAnswer}'`
+            let error = `\nWrong sample answer '${sampleAnswer}'`
             if (sampleAnswer < props.sampleAnswer) error += ', too low ⬇️❗️'
             if (sampleAnswer > props.sampleAnswer) error += ', too high ⬆️❗️'
-            console.error(error)
+            console.error(error + '\n')
             return
         }
-        console.log('✅ Sample Solved! solving full input...')
+        console.log('\n✅ Sample Solved! solving full input...')
     }
 
     // Solve full input and print answer
     const inputPath = `${getFolder(props.day)}/data/input${props.inputNr ? `-${props.inputNr}` : ''}.txt`
     const input = readLines(inputPath)
     const answer = props.solver(input)
-    console.log(`\n${answer} ⭐️`)
+    console.log(`\n${answer} ⭐️\n`)
 }
