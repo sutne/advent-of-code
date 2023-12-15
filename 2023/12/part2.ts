@@ -31,13 +31,12 @@ function parseRecord(line: string): Record {
     }
 }
 
-let checkedCount = 0 // keep track of how good the pruning is
 /**
- * Checks if a complete record is still possible to achieve to prune as many recursive branches as possible.
- * If there is no unknowns left, it returns `true` only if the record is in fact valid.
+ * Alright so part1 would take forever as checking the entire spring array each time, instead we can split the
+ * spring array into subgroups, and find how many possibilities that group has (groups with counts), we could
+ * then store these subgroups in a Record to not have to recalculate the same subgroups each time.
  */
 function isStillPossible(record: Record): boolean {
-    checkedCount++
     const groups: number[] = record.springs
         .reduce(
             (groups, spring) => {
@@ -94,7 +93,6 @@ function countPossibilities(record: Record) {
 }
 
 function solver(input: string[]): number {
-    checkedCount = 0
     const records = input.map((line) => parseRecord(line))
     return records.reduce((sum, record) => {
         return sum + countPossibilities(record)
@@ -103,11 +101,6 @@ function solver(input: string[]): number {
 
 solveCalendar({
     day: 12,
-    sampleAnswer: 21,
-    solver, // 7490 ⭐️
+    sampleAnswer: 525152,
+    solver, //
 })
-
-// See how many different records were checked to see if they were valid
-console.log({ checkedCount })
-// brute force  : 14 206 552
-// with pruning :  2 121 204
