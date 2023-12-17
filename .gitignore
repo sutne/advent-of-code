@@ -1,5 +1,6 @@
 .DS_Store
 .vscode
+temp*
 
 node_modules
 package-lock.json
