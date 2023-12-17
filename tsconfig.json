@@ -2,7 +2,9 @@
     "compilerOptions": {
         "esModuleInterop": true,
         "lib": ["ES2023"],
-        "target": "ESNEXT"
+        "target": "ESNEXT",
+        "moduleResolution": "nodenext",
+        "module": "nodenext"
     },
     "exclude": ["node_modules/**/*"],
     "include": ["**/*.ts"],
