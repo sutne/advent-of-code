@@ -2,7 +2,7 @@ import fs from 'fs'
 
 /** get folder directory for 2023 calendar day */
 export function getFolder(day: number): string {
-    return `2023/${(day < 10 ? '0' : '') + day}`
+    return `${(day < 10 ? '0' : '') + day}`
 }
 
 /** Read and return all lines from `path` */
