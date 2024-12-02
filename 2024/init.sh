@@ -13,6 +13,7 @@ mkdir -p $DATA_DIR
 # init files
 touch "$DAY_DIR/__init__.py"
 touch "$DAY_DIR/part2.py"
+touch "$DATA_DIR/sample.txt"
 # init part1.py with boilerplate
 PART_1_FILE="$DAY_DIR/part1.py"
 if [ -f "$PART_1_FILE" ]; then
