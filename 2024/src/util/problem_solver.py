@@ -71,9 +71,9 @@ def write_lines(
     *,
     day: int,
     lines: list[str],
-    input_nr: int | None = None,
+    output_nr: int | None = None,
 ):
-    output_path = _get_output_path(day, input_nr)
+    output_path = _get_output_path(day, output_nr)
     with open(output_path, "w") as f:
         for line in lines:
             f.write(f"{line}\n")
