@@ -9,6 +9,7 @@ Day  3: ⭐️⭐️
 Day  4: ⭐️⭐️
 Day  5: ⭐️⭐️
 Day  6: ⭐️⭐️
+Day  7: ⭐️⭐️
 ```
 
 ### Running
@@ -25,6 +26,6 @@ python -m src.01.part1
 
 ✅ Sample Solved! solving full input...
 
-1590491 ⭐️
+1590491 ⭐️ in 1 ms
 
 ```
