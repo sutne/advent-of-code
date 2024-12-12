@@ -6,22 +6,23 @@ def problem_solver(
     *,
     day: int,
     solver: Callable[[list[str]], int],
-    sample_answer: int,
+    sample_answer: int | None = None,
     input_nr: int | None = None,
     sample_nr: int | None = None,
 ):
-    sample_path = _get_sample_path(day, sample_nr)
-    sample_input = _read_lines(sample_path)
-    solved_sample_answer = solver(sample_input)
-    if solved_sample_answer != sample_answer:
-        error = f"\nWrong sample answer '{solved_sample_answer}'"
-        if solved_sample_answer < sample_answer:
-            error += ", too low ⬇️❗️"
-        if solved_sample_answer > sample_answer:
-            error += ", too high ⬆️❗️"
-        print(error + "\n")
-        return
-    print("\n✅ Sample Solved! solving full input...")
+    if sample_answer is not None:
+        sample_path = _get_sample_path(day, sample_nr)
+        sample_input = _read_lines(sample_path)
+        solved_sample_answer = solver(sample_input)
+        if solved_sample_answer != sample_answer:
+            error = f"\nWrong sample answer '{solved_sample_answer}'"
+            if solved_sample_answer < sample_answer:
+                error += ", too low ⬇️❗️"
+            if solved_sample_answer > sample_answer:
+                error += ", too high ⬆️❗️"
+            print(error + "\n")
+            return
+        print("\n✅ Sample Solved! solving full input...")
 
     # Solve full input and print answer
     input_path = _get_input_path(day, input_nr)
