@@ -74,9 +74,10 @@ def write_lines(
     lines: list[str],
     output_nr: int | None = None,
     sleep: float | None = None,
+    append: bool = False,
 ):
     output_path = _get_output_path(day, output_nr)
-    with open(output_path, "w") as f:
+    with open(output_path, "a" if append else "w") as f:
         for line in lines:
             f.write(f"{line}\n")
     if sleep is not None:
