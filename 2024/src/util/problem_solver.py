@@ -1,5 +1,6 @@
-from typing import Callable
+import os
 import time
+from typing import Callable
 
 
 def problem_solver(
@@ -10,22 +11,29 @@ def problem_solver(
     input_nr: int | None = None,
     sample_nr: int | None = None,
 ):
+    input_path = _get_input_path(day, input_nr)
+    if not os.path.isfile(input_path):
+        print("\n📂 No input file!\n")
+        exit(1)
+
     if sample_answer is not None:
         sample_path = _get_sample_path(day, sample_nr)
+        if not os.path.isfile(sample_path):
+            print("\n📂 No sample file!\n")
+            exit(1)
         sample_input = _read_lines(sample_path)
         solved_sample_answer = solver(sample_input)
         if solved_sample_answer != sample_answer:
-            error = f"\nWrong sample answer '{solved_sample_answer}'"
+            error = f"\n❌ Wrong sample answer '{solved_sample_answer}'"
             if solved_sample_answer < sample_answer:
-                error += ", too low ⬇️❗️"
+                error += ", too low ↗️"
             if solved_sample_answer > sample_answer:
-                error += ", too high ⬆️❗️"
+                error += ", too high ↘️"
             print(error + "\n")
             return
         print("\n✅ Sample Solved! solving full input...")
 
     # Solve full input and print answer
-    input_path = _get_input_path(day, input_nr)
     input = _read_lines(input_path)
     start_time = time.perf_counter_ns()
     answer = solver(input)
@@ -37,8 +45,8 @@ def _get_sample_path(day: int, sample_nr: int | None):
     return f"{_get_data_folder(day)}/sample{'' if sample_nr is None else f'-{sample_nr}'}.txt"
 
 
-def _get_output_path(day: int, input_nr: int | None):
-    return f"{_get_data_folder(day)}/output{'' if input_nr is None else f'-{input_nr}'}.txt"
+def get_output_path(day: int, output_nr: int | None):
+    return f"{_get_data_folder(day)}/output{'' if output_nr is None else f'-{output_nr}'}.txt"
 
 
 def _get_input_path(day: int, input_nr: int | None):
@@ -76,7 +84,7 @@ def write_lines(
     sleep: float | None = None,
     append: bool = False,
 ):
-    output_path = _get_output_path(day, output_nr)
+    output_path = get_output_path(day, output_nr)
     with open(output_path, "a" if append else "w") as f:
         for line in lines:
             f.write(f"{line}\n")
