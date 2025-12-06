@@ -3,7 +3,7 @@
 ### Progress
 
 ```
-Day  1: 
+Day  1: ⭐️⭐️
 ```
 
 ### Running
@@ -12,6 +12,16 @@ From inside the `2025` folder:
 
 ```sh
 python -m src.01.part1
+```
+
+#### Expected Output
+
+```
+
+✅ Sample Solved! solving full input...
+
+1168 ⭐️ in 2 ms
+
 ```
 
 ### Setup
